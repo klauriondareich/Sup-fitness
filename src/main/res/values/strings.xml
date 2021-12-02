@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Feet up</string>
+    <string name="title_activity_track_user_run">TrackUserRun</string>
+</resources>
