@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Feet up</string>
     <string name="title_activity_track_user_run">TrackUserRun</string>
+    <string name="save_btn_text">Enregistrer</string>
+    <string name="save_input_text">Entrer votre poids</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="enter_date">Entrer la date:</string>
+    <string name="enter_weight">Entrer le poids:</string>
+
 </resources>
