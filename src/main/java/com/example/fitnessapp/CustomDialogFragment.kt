@@ -22,6 +22,11 @@ class CustomDialogFragment : DialogFragment() {
         var rootView: View = inflater.inflate(R.layout.fragment_custom_dialog, container, false)
         // Inflate the layout for this fragment
 
+        // Database Init
+        var helper = helper(requireActivity().application)
+        var db = helper.readableDatabase
+
+        // Getting inputs and buttons components
         val submitBtn = rootView.findViewById<Button>(R.id.submitButton)
         val weightInput = rootView.findViewById<TextView>(R.id.enter_weight_id)
         val dateInput = rootView.findViewById<TextView>(R.id.editTextDate)
@@ -30,7 +35,10 @@ class CustomDialogFragment : DialogFragment() {
             var cv = ContentValues()
             cv.put("userWeight", weightInput.getText().toString())
             cv.put("date", dateInput.getText().toString())
-            Log.i("dad", "dada clicked")
+            db.insert("weights", null, cv)
+
+            weightInput.setText("")
+            dateInput.setText("")
             dismiss()
         }
 

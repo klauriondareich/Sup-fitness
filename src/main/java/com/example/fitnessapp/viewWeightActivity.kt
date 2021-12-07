@@ -21,23 +21,14 @@ class viewWeightActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_weight)
-        Log.i("mb", "Dareich");
 
-        // Database Init
-        var helper = helper(applicationContext)
-        var db = helper.readableDatabase
-        var rs = db.rawQuery("SELECT * FROM WEIGHTS", null)
-
-        Log.i("dada", rs.toString());
-
-
-
-        // Adapter Init
+        // Passing data to the list view
         adapter = getWeightsAdapter(this, DataService.weights)
         val weightlistView = findViewById<ListView>(R.id.weightListView)
 
         weightlistView.adapter = adapter
 
+        // Managing Dialog view
         val addWeight = findViewById<Button>(R.id.add_weight_btn_id)
         addWeight.setOnClickListener(){
 
