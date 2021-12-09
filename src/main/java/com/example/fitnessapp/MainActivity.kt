@@ -3,13 +3,7 @@ package com.example.fitnessapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.ListView
-import com.example.fitnessapp.Model.Weights
-import com.example.fitnessapp.adapters.getWeightsAdapter
-import com.example.fitnessapp.services.DataService
-import com.example.fitnessapp.services.helper
 
 class MainActivity : AppCompatActivity() {
 

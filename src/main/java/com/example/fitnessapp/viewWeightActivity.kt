@@ -1,21 +1,14 @@
 package com.example.fitnessapp
 
 import android.annotation.SuppressLint
-import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.BaseColumns
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ListView
-import android.widget.TextView
 import com.example.fitnessapp.Model.Weights
 import com.example.fitnessapp.adapters.getWeightsAdapter
-import com.example.fitnessapp.services.DataService
 import com.example.fitnessapp.services.helper
+import kotlin.collections.ArrayList
 
 class viewWeightActivity : AppCompatActivity() {
 
@@ -28,7 +21,11 @@ class viewWeightActivity : AppCompatActivity() {
 
         var helper = helper(applicationContext)
         var db = helper.readableDatabase
-        var rs = db.rawQuery("SELECT * FROM WEIGHTS ", null)
+
+       // val clearDBQuery = "DELETE FROM WEIGHTS"
+        //db.execSQL(clearDBQuery)
+
+        var rs = db.rawQuery("SELECT * FROM WEIGHTS ORDER BY date DESC", null)
         val empList:ArrayList<Weights> = ArrayList()
 
         var userWeight:String
@@ -36,7 +33,7 @@ class viewWeightActivity : AppCompatActivity() {
 
         if (rs.moveToFirst()) {
             do {
-                userWeight = rs.getString(rs.getColumnIndex("userWeight"))
+                userWeight = rs.getString(rs.getColumnIndex("userWeight")) + "KG"
                 userDate = rs.getString(rs.getColumnIndex("date"))
                  val userInfos= Weights(date = userDate, weight = userWeight)
                 empList.add(userInfos)
@@ -47,15 +44,8 @@ class viewWeightActivity : AppCompatActivity() {
             val weightlistView = findViewById<ListView>(R.id.weightListView)
 
             weightlistView.adapter = adapter
+
         }
-        Log.i("info32", empList.toString())
-
-        /*if (rs.moveToNext()){
-            var name = rs.getString(1)
-
-            Log.i("info30", name)
-        }*/
-
 
 
 

@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.example.fitnessapp.services.helper
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class CustomDialogFragment : DialogFragment() {
@@ -29,16 +31,18 @@ class CustomDialogFragment : DialogFragment() {
         // Getting inputs and buttons components
         val submitBtn = rootView.findViewById<Button>(R.id.submitButton)
         val weightInput = rootView.findViewById<TextView>(R.id.enter_weight_id)
-        val dateInput = rootView.findViewById<TextView>(R.id.editTextDate)
 
         submitBtn.setOnClickListener(){
             var cv = ContentValues()
+            val currentDate: String = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(
+                Date()
+            )
             cv.put("userWeight", weightInput.getText().toString())
-            cv.put("date", dateInput.getText().toString())
+            cv.put("date", currentDate)
             db.insert("weights", null, cv)
 
             weightInput.setText("")
-            dateInput.setText("")
+            getActivity()?.recreate();
             dismiss()
         }
 
