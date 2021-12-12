@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.fitnessapp.Model.Weights
+import com.example.fitnessapp.Model.WeightsAndDates
 import com.example.fitnessapp.R
 
-class getWeightsAdapter(context: Context, allWeights: List<Weights>) : BaseAdapter(){
+class getWeightsAdapter(context: Context, allWeights: List<WeightsAndDates>) : BaseAdapter(){
 
     val context =  context
     val allWeights = allWeights

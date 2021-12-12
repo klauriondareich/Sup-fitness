@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val viewWeightBtn = findViewById<Button>(R.id.viewWeightId)
         val trackRunIdBtn = findViewById<Button>(R.id.trackRunId)
+        val curveBtn = findViewById<Button>(R.id.weightCurveId)
 
         viewWeightBtn.setOnClickListener{
             val viewWeightIntent = Intent(this, viewWeightActivity::class.java)
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         trackRunIdBtn.setOnClickListener{
             val trackUserRunIntent = Intent(this, TrackUserRun::class.java)
             startActivity(trackUserRunIntent)
+        }
+
+        curveBtn.setOnClickListener{
+            val curveIntent = Intent(this, WeightsCurve::class.java)
+            startActivity(curveIntent)
         }
     }
 }
