@@ -23,9 +23,6 @@ class viewWeightActivity : AppCompatActivity() {
         var helper = helper(applicationContext)
         var db = helper.readableDatabase
 
-       // val clearDBQuery = "DELETE FROM WEIGHTS"
-        //db.execSQL(clearDBQuery)
-
         // Select all weights from DB by Date
         var rs = db.rawQuery("SELECT * FROM WEIGHTS ORDER BY date DESC", null)
         val empList:ArrayList<WeightsAndDates> = ArrayList()
